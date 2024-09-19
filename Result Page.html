@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Header with menu and icons */
+        .header {
+            background-color: #66BB6A;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .menu {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .icons i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Main content container */
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Card design for plant entries */
+        .plant-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .plant-card img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #e0e0e0;
+        }
+
+        .plant-card h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .plant-card p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .plant-card .description {
+            font-weight: bold;
+            color: black;
+        }
+
+        .plant-card .date {
+            color: #999;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background-color: #66BB6A;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .bottom-nav i {
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Desktop responsive adjustments */
+        @media (min-width: 768px) {
+            .content {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .plant-card {
+                flex: 0 0 48%; /* 2 cards per row */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="menu">&#9776;</div>
+    <div class="icons">
+        <i>&#128269;</i> <!-- Search Icon -->
+        <i>&#128276;</i> <!-- Notification Icon -->
+    </div>
+</div>
+
+<!-- Main content with plant cards -->
+<div class="content">
+    <div class="plant-card">
+        <img src="image-placeholder.png" alt="Plant Image">
+        <h3>Plant Name</h3>
+        <p class="description">Description</p>
+        <p class="date">Date</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="image-placeholder.png" alt="Plant Image">
+        <h3>Plant Name</h3>
+        <p class="description">Description</p>
+        <p class="date">Date</p>
+    </div>
+
+    <!-- Add more plant cards here -->
+</div>
+
+<!-- Bottom navigation bar -->
+<div class="bottom-nav">
+    <i>&#8962;</i> <!-- Home Icon -->
+    <i>&#43;</i>   <!-- Plus Icon -->
+    <i>&#128100;</i> <!-- Profile Icon -->
+</div>
+
+</body>
+</html>
