@@ -5,82 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings Page</title>
     <style>
-        body {
+        /* Reset default browser styling */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main container */
         .container {
             max-width: 400px;
-            margin: 0 auto;
+            width: 100%;
             background-color: white;
+            margin: 0 auto;
             border-radius: 8px;
             overflow: hidden;
+            position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding-bottom: 60px; /* Make space for bottom navigation */
         }
+
+        /* Header styling */
         .header {
             background-color: #68B92E;
             color: white;
             padding: 15px;
+            font-size: 20px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Menu icon on the left */
+        .header .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        /* Title in the middle */
+        .header .title {
+            flex-grow: 1;
             text-align: center;
             font-size: 20px;
-        }
-        .settings-list {
-            padding: 0;
-            list-style: none;
             margin: 0;
         }
+
+        /* Icons on the right (bell and search) */
+        .header .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .header-icons i {
+            margin-left: 20px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* Settings List */
+        .settings-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
         .settings-list li {
             display: flex;
             align-items: center;
-            padding: 15px;
+            padding: 18px 20px;
             border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
         }
+
+        .settings-list li i {
+            margin-right: 15px;
+            color: #888;
+            font-size: 20px;
+            display: inline-block;
+            width: 24px; /* Fixed width for icon alignment */
+            text-align: center;
+        }
+
         .settings-list li a {
-            flex-grow: 1;
             text-decoration: none;
             color: #333;
+            flex-grow: 1;
+            font-size: 16px;
         }
-        .settings-list li i {
-            margin-right: 10px;
-            color: #888;
-        }
+
         .settings-list li:last-child {
             border-bottom: none;
         }
+
+        /* Log out button */
         .logout {
             color: red;
             text-align: center;
-            padding: 15px;
+            padding: 18px 0;
+            font-size: 16px;
+            border-top: 1px solid #e0e0e0;
             cursor: pointer;
         }
+
+        /* Bottom navigation bar */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #e0e0e0;
+            box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom-nav i {
+            font-size: 28px;
+            color: #68B92E;
+        }
+
+        /* Mobile responsiveness */
         @media (min-width: 768px) {
             .container {
-                max-width: 600px;
-            }
-            .header {
-                font-size: 24px;
+                max-width: 500px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Settings container -->
     <div class="container">
+        <!-- Header -->
         <div class="header">
-            Settings
+            <!-- Menu icon (hamburger) -->
+            <span class="menu-icon">☰</span>
+
+            <!-- Title in the center -->
+            <span class="title">Settings</span>
+
+            <!-- Bell and Search icons on the right -->
+            <div class="header-icons">
+                <i>🔔</i>
+                <i>🔍</i>
+            </div>
         </div>
+
+        <!-- Settings List -->
         <ul class="settings-list">
             <li><i>👤</i><a href="#">Manage my account</a></li>
             <li><i>🔒</i><a href="#">Privacy and safety</a></li>
             <li><i>🔗</i><a href="#">Share profile</a></li>
             <li><i>🔔</i><a href="#">Push notifications</a></li>
             <li><i>🌐</i><a href="#">Language</a></li>
-            <li><i>🛠️</i><a href="#">Accessibility</a></li>
+            <li><i>⚙️</i><a href="#">Accessibility</a></li>
         </ul>
+
+        <!-- Log Out Button -->
         <div class="logout">
             Log Out
         </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <i>🏠</i>
+        <i>➕</i>
+        <i>👤</i>
     </div>
 
 </body>
