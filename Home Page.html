@@ -14,178 +14,220 @@
         .header {
             background-color: #4CAF50;
             color: white;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
+        }
+
+        .nav-icon {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .nav-icon img {
+            width: 30px;
+            height: 30px;
         }
 
         .content {
-            padding: 40px 20px;
+            padding: 20px;
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         .post {
             background-color: white;
             padding: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .post img {
             width: 100%;
             border-radius: 10px;
-            margin-top: 15px;
         }
 
-        .post .user {
+        .user {
             display: flex;
             align-items: center;
+            margin-bottom: 15px;
         }
 
-        .post .user img {
-            width: 50px;
-            height: 50px;
+        .user img {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             margin-right: 15px;
         }
 
-        .post .user .info h3 {
+        .user .info h3 {
             margin: 0;
-            font-size: 1.3em;
         }
 
-        .post .user .info p {
+        .user .info p {
             margin: 0;
-            font-size: 16px;
+            font-size: 14px;
             color: #777;
         }
 
-        .post .actions {
+        .actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
-        .post .actions .likes,
-        .post .actions .comments {
+        .actions .likes, .actions .comments {
             display: flex;
             align-items: center;
         }
 
-        .post .actions .likes img,
-        .post .actions .comments img {
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
+        .actions .likes img, .actions .comments img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
         }
 
-        .post .actions .likes p,
-        .post .actions .comments p {
+        .actions p {
             margin: 0;
-            font-size: 1.1em;
         }
 
         .footer {
             background-color: #4CAF50;
             color: white;
-            padding: 20px 0;
+            padding: 10px 0;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
         }
 
         .footer button {
             background-color: #4CAF50;
             color: white;
-            padding: 15px 30px;
-            margin: 5px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
         }
 
         .footer button img {
             width: 25px;
             height: 25px;
+            margin-right: 5px;
         }
 
         .footer button:hover {
             opacity: 0.8;
         }
 
-        .nav-icon {
-            display: none;
-        }
-
-        /* Media queries for larger screens */
-        @media screen and (min-width: 1024px) {
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
             .header {
-                padding: 30px 0;
+                padding: 15px;
+                text-align: left;
             }
 
             .header h1 {
-                font-size: 3em;
+                font-size: 18px;
+            }
+
+            .nav-icon {
+                display: block;
             }
 
             .post {
-                padding: 40px;
+                padding: 15px;
+                margin-bottom: 15px;
             }
 
-            .post .actions {
-                margin-top: 30px;
+            .user img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .actions .likes, .actions .comments {
+                margin-bottom: 10px;
             }
 
             .footer {
-                padding: 30px 0;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
             }
 
             .footer button {
-                padding: 20px 40px;
-                font-size: 20px;
+                padding: 8px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>GreenOasis</h1>
-</div>
-
-<div class="content">
-    <div class="post">
-        <div class="user">
-            <img src="profile-picture.png" alt="Profile Picture">
-            <div class="info">
-                <h3>joshua_I</h3>
-                <p>22 August 2004</p>
-            </div>
+    <div class="header">
+        <div class="nav-icon">
+            <img src="C:\Users\Asus\Downloads\m.png" alt="Menu">
         </div>
-        <img src="C:\Users\Asus\Downloads\1.webp" alt="Plant Image">
-        <div class="actions">
-            <div class="likes">
-                <img src="heart-icon.png" alt="Heart">
-                <p>44,686</p>
+        <h1>GreenOasis</h1>
+    </div>
+
+    <div class="content">
+        <div class="post">
+            <div class="user">
+                <img src="profile-picture.png" alt="Profile Picture">
+                <div class="info">
+                    <h3>joshua_I</h3>
+                    <p>22 August 2004</p>
+                </div>
             </div>
-            <div class="comments">
-                <img src="comment-icon.png" alt="Comment">
-                <p>Craig, love and others</p>
+            <img src="C:\Users\Asus\Downloads\1.webp" alt="Plant Image">
+            <div class="actions">
+                <div class="likes">
+                    <img src="heart-icon.png" alt="Heart">
+                    <p>44,686</p>
+                </div>
+                <div class="comments">
+                    <img src="comment-icon.png" alt="Comment">
+                    <p>Craig, love and others</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="footer">
-    <button><img src="home-icon.png" alt="Home"></button>
-    <button><img src="plus-icon.png" alt="Plus"></button>
-    <button><img src="profile-icon.png" alt="Profile"></button>
-</div>
+    <div class="footer">
+        <button><img src="C:\Users\Asus\Downloads\h.png" alt="Home">Home</button>
+        <button><img src="plus-icon.png" alt="Plus">Post</button>
+        <button><img src="profile-icon.png" alt="Profile">Profile</button>
+    </div>
+
+    <script>
+        const navIcon = document.querySelector('.nav-icon');
+        const header = document.querySelector('.header');
+
+        navIcon.addEventListener('click', () => {
+            header.classList.toggle('open');
+        });
+    </script>
 
 </body>
 </html>
