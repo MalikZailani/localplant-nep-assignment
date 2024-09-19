@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background-color: #66BB6A;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: black;
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .icons i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Main content area */
+        .content {
+            display: flex;
+            height: calc(100vh - 60px); /* Full height minus header */
+        }
+
+        /* Sidebar Menu */
+        .sidebar {
+            background-color: #66BB6A;
+            width: 250px;
+            padding-top: 60px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            background-color: #f0f0f0;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Main page content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background-color: #66BB6A;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .bottom-nav i {
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Desktop responsive adjustments */
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+
+            .sidebar {
+                padding-top: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .sidebar ul li {
+                font-size: 18px;
+            }
+
+            .bottom-nav {
+                display: none; /* Hiding bottom navigation on desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="menu-toggle">&#9776; Menu</div>
+    <h1>Menu</h1>
+    <div class="icons">
+        <i>&#128269;</i> <!-- Search Icon -->
+        <i>&#128276;</i> <!-- Notification Icon -->
+    </div>
+</div>
+
+<!-- Main content area -->
+<div class="content">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li>Upload History</li>
+            <li>Plant Community</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <!-- Main content placeholder -->
+    <div class="main-content">
+        <!-- Add main content here -->
+    </div>
+</div>
+
+<!-- Bottom navigation bar (visible on mobile) -->
+<div class="bottom-nav">
+    <i>&#8962;</i> <!-- Home Icon -->
+    <i>&#43;</i>   <!-- Plus Icon -->
+    <i>&#128100;</i> <!-- Profile Icon -->
+</div>
+
+</body>
+</html>
