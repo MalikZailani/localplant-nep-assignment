@@ -81,6 +81,42 @@
         .close-btn:hover {
             color: #000;
         }
+
+        /* Desktop version */
+        @media (min-width: 768px) {
+            .upload-container {
+                width: 500px; /* Adjust container width */
+                padding: 30px;
+                margin: 80px auto;
+            }
+
+            .upload-container h2 {
+                font-size: 24px;
+            }
+
+            .upload-container p {
+                font-size: 16px;
+            }
+
+            .image-preview img {
+                width: 50px; /* Larger image preview */
+                height: 50px;
+            }
+
+            .image-preview span {
+                font-size: 16px;
+            }
+
+            input[type="text"], select, textarea {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .upload-btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
