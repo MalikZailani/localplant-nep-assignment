@@ -9,177 +9,68 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f3f4f6;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Navbar Styles */
 header {
     width: 100%;
     background-color: #64b34e;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    color: white;
-}
-
-.logo {
+    padding: 1rem 0;
     text-align: center;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
+.navbar .logo h1 {
+    color: white;
+    font-size: 2rem;
     font-weight: bold;
-    margin: 0;
 }
 
-.since {
-    font-size: 0.8rem;
-    display: block;
+.navbar .logo .since {
+    color: white;
+    font-size: 1rem;
 }
 
-.menu-icon, .nav-icons i {
-    font-size: 1.5rem;
-}
-
-/* Login Section */
+/* Container */
 .container {
-    width: 100%;
-    max-width: 400px;
-    margin: 20px;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
-.login-section {
+/* Login, Forgot Password, and Create Account Cards */
+.login-section, .forgot-password-section, .create-account-section {
     margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
-.login-card {
+.login-card, .forgot-password-card, .create-account-card {
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
 }
 
-form {
+.login-card form, .forgot-password-card form, .create-account-card form {
     display: flex;
     flex-direction: column;
 }
 
 .form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.form-group input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-}
-
-.btn {
-    background-color: #000;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.links {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.links a {
-    color: #64b34e;
-    text-decoration: none;
-    display: block;
-    margin: 5px 0;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .container {
-        max-width: 100%;
-    }
-
-    .navbar {
-        padding: 1rem;
-    }
-
-    .login-section {
-        margin-top: 30px;
-    }
-
-    .login-card {
-        width: 100%;
-        padding: 15px;
-    }
-}
-
-/* Forgot Password Page */
-.forgot-password-section, .create-account-section {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.forgot-password-card, .create-account-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-.forgot-password-card h2, .create-account-card h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #64b34e;
-}
-
-.forgot-password-card p {
-    text-align: center;
     margin-bottom: 20px;
-    font-size: 0.9rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 1rem;
 }
 
 .form-group label {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-size: 1rem;
 }
 
 .form-group input {
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -189,25 +80,27 @@ form {
 .btn {
     background-color: #000;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+    width: 100%;
 }
 
 .links {
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
 .links a {
     color: #64b34e;
     text-decoration: none;
-    display: block;
-    margin: 5px 0;
+    margin: 0 10px;
+    display: inline-block;
 }
 
 .links a:hover {
     text-decoration: underline;
 }
+
