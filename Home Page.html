@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenOasis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        body, html {
             margin: 0;
-            font-family: sans-serif;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
             background-color: #f2f2f2;
         }
 
         .header {
-            background-color: #4CAF50;
+            background-color: #61b739;
             color: white;
             padding: 20px;
             text-align: center;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header h1 {
             margin: 0;
+            font-size: 24px;
         }
 
         .nav-icon {
             display: none;
-            position: absolute;
-            top: 10px;
-            right: 20px;
             cursor: pointer;
         }
 
@@ -38,8 +44,10 @@
 
         .content {
             padding: 20px;
-            max-width: 1200px;
+            max-width: 600px;
             margin: 0 auto;
+            overflow-y: auto;
+            height: calc(100% - 80px); /* Adjust height to account for header and footer */
         }
 
         .post {
@@ -48,6 +56,12 @@
             margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .post img {
@@ -70,6 +84,7 @@
 
         .user .info h3 {
             margin: 0;
+            font-size: 18px;
         }
 
         .user .info p {
@@ -101,7 +116,7 @@
         }
 
         .footer {
-            background-color: #4CAF50;
+            background-color: #61b739;
             color: white;
             padding: 10px 0;
             text-align: center;
@@ -114,7 +129,7 @@
         }
 
         .footer button {
-            background-color: #4CAF50;
+            background-color: #61b739;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -123,6 +138,7 @@
             font-size: 16px;
             display: flex;
             align-items: center;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .footer button img {
@@ -132,7 +148,8 @@
         }
 
         .footer button:hover {
-            opacity: 0.8;
+            background-color: #61b739;
+            transform: translateY(-2px);
         }
 
         /* Responsive design for mobile */
@@ -186,7 +203,7 @@
 
     <div class="header">
         <div class="nav-icon">
-            <img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\m.png" alt="Menu">
+            <a href="Navigation Menu.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\m.png" alt="Menu"></button></a>
         </div>
         <h1>GreenOasis</h1>
     </div>
@@ -215,9 +232,9 @@
     </div>
 
     <div class="footer">
-        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home">Home</button>
-        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus">Post</button>
-        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile">Profile</button>
+        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home"></button>
+        <a href="Upload Page.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus"></button></a>
+        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile"></button>
     </div>
 
     <script>
