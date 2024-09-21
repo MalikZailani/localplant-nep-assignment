@@ -1,0 +1,8 @@
+First Checkpoint (21 September 2024 8:35AM)
+
+How to take a picture using a phone
+Use Tailwind for basis of design as a learning curve
+Can also use bootstrap for design
+Don't need to think about uploading images, just do it locally for now
+
+
