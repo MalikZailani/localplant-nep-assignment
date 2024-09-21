@@ -16,9 +16,8 @@
 
         .header {
             background-color: #61b739;
-            color: white;
+            color: rgb(255, 255, 255);
             padding: 20px;
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -30,24 +29,26 @@
         .header h1 {
             margin: 0;
             font-size: 24px;
+            text-align: center;
+            flex-grow: 1;
         }
 
-        .nav-icon {
-            display: none;
+        .nav-icon, .actions {
             cursor: pointer;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-icon img {
-            width: 30px;
-            height: 30px;
+        .nav-icon img, .actions img {
+            width: 25px;
+            height: 25px;
+            margin: 0 10px;
         }
 
         .content {
             padding: 20px;
             max-width: 600px;
             margin: 0 auto;
-            overflow-y: auto;
-            height: calc(100% - 80px); /* Adjust height to account for header and footer */
         }
 
         .post {
@@ -56,12 +57,6 @@
             margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .post img {
@@ -105,7 +100,7 @@
             align-items: center;
         }
 
-        .actions .likes img, .actions .comments img {
+        .actions img {
             width: 20px;
             height: 20px;
             margin-right: 5px;
@@ -119,7 +114,6 @@
             background-color: #61b739;
             color: white;
             padding: 10px 0;
-            text-align: center;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -129,92 +123,62 @@
         }
 
         .footer button {
-            background-color: #61b739;
+            background-color: transparent;
             color: white;
-            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
             display: flex;
             align-items: center;
-            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .footer button img {
+        .footer img {
             width: 25px;
             height: 25px;
-            margin-right: 5px;
         }
 
-        .footer button:hover {
-            background-color: #61b739;
-            transform: translateY(-2px);
-        }
-
-        /* Responsive design for mobile */
+        /* Responsive for mobile */
         @media (max-width: 768px) {
             .header {
-                padding: 15px;
-                text-align: left;
+                padding: 10px;
             }
 
             .header h1 {
-                font-size: 18px;
-            }
-
-            .nav-icon {
-                display: block;
+                font-size: 20px;
             }
 
             .post {
                 padding: 15px;
-                margin-bottom: 15px;
             }
 
             .user img {
                 width: 30px;
                 height: 30px;
-                margin-right: 10px;
-            }
-
-            .actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .actions .likes, .actions .comments {
-                margin-bottom: 10px;
-            }
-
-            .footer {
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 10px;
-            }
-
-            .footer button {
-                padding: 8px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <div class="header">
         <div class="nav-icon">
-            <a href="Navigation Menu.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\m.png" alt="Menu"></button></a>
+            <a href="Navigation Menu.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\NM.png" alt="Menu"></button></a>
         </div>
         <h1>GreenOasis</h1>
+        <div class="actions">
+            <img src="search-icon.png" alt="Search">
+            <img src="bell-icon.png" alt="Notifications">
+        </div>
     </div>
 
+    <!-- Content Section -->
     <div class="content">
         <div class="post">
             <div class="user">
                 <img src="profile-picture.png" alt="Profile Picture">
                 <div class="info">
                     <h3>joshua_I</h3>
-                    <p>22 August 2004</p>
+                    <p>22 August 2024</p>
                 </div>
             </div>
             <img src="C:\Users\Asus\Downloads\1.webp" alt="Plant Image">
@@ -231,20 +195,12 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
     <div class="footer">
         <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home"></button>
         <a href="Upload Page.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus"></button></a>
         <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile"></button>
     </div>
-
-    <script>
-        const navIcon = document.querySelector('.nav-icon');
-        const header = document.querySelector('.header');
-
-        navIcon.addEventListener('click', () => {
-            header.classList.toggle('open');
-        });
-    </script>
 
 </body>
 </html>
