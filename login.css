@@ -16,7 +16,7 @@ body {
 
 /* Navbar Styles */
 header {
-    width: 100%;
+    width: 100%; /* Ensures the header spans the full width of the browser */
     background-color: #64b34e;
     padding: 1rem 0;
     text-align: center;
