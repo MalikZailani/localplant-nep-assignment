@@ -137,6 +137,42 @@
             color: #61B739;
         }
 
+        .footer {
+            background-color: #61b739;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer button {
+            background-color: #61b739;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .footer button img {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+        }
+
+        .footer button:hover {
+            background-color: #61b739;
+            transform: translateY(-2px);
+        }
+
         /* Mobile responsiveness */
         @media (min-width: 768px) {
             .container {
@@ -181,10 +217,10 @@
     </div>
 
     <!-- Bottom Navigation Bar -->
-    <div class="bottom-nav">
-        <i>🏠</i>
-        <i>➕</i>
-        <i>👤</i>
+    <div class="footer">
+        <button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home"></button>
+        <a href="Upload Page.html"><button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus"></button></a>
+        <button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile"></button>
     </div>
 
 </body>
