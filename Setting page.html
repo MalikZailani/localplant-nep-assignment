@@ -1,227 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings Page</title>
-    <style>
-        /* Reset default browser styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Main container */
-        .container {
-            max-width: 400px;
-            width: 100%;
-            background-color: white;
-            margin: 0 auto;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding-bottom: 60px; /* Make space for bottom navigation */
-        }
-
-        /* Header styling */
-        .header {
-            background-color: #61B739;
-            color: white;
-            padding: 15px;
-            font-size: 20px;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Menu icon on the left */
-        .header .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        /* Title in the middle */
-        .header .title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 20px;
-            margin: 0;
-        }
-
-        /* Icons on the right (bell and search) */
-        .header .header-icons {
-            display: flex;
-            align-items: center;
-        }
-
-        .header .header-icons i {
-            margin-left: 20px;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        /* Settings List */
-        .settings-list {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        .settings-list li {
-            display: flex;
-            align-items: center;
-            padding: 18px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            cursor: pointer;
-        }
-
-        .settings-list li i {
-            margin-right: 15px;
-            color: #888;
-            font-size: 20px;
-            display: inline-block;
-            width: 24px; /* Fixed width for icon alignment */
-            text-align: center;
-        }
-
-        .settings-list li a {
-            text-decoration: none;
-            color: #333;
-            flex-grow: 1;
-            font-size: 16px;
-        }
-
-        .settings-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Log out button */
-        .logout {
-            color: red;
-            text-align: center;
-            padding: 18px 0;
-            font-size: 16px;
-            border-top: 1px solid #e0e0e0;
-            cursor: pointer;
-        }
-
-        /* Bottom navigation bar */
-        .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color:  #61B739;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-top: 1px solid #e0e0e0;
-            box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .bottom-nav i {
-            font-size: 28px;
-            color: #61B739;
-        }
-
-        .footer {
-            background-color: #61b739;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-        }
-        .footer button {
-            background-color: #61b739;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .footer button img {
-            width: 25px;
-            height: 25px;
-            margin-right: 5px;
-        }
-
-        .footer button:hover {
-            background-color: #61b739;
-            transform: translateY(-2px);
-        }
-
-        /* Mobile responsiveness */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 500px;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-
-    <!-- Settings container -->
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <!-- Menu icon (hamburger) -->
-            <span class="menu-icon">☰</span>
-
-            <!-- Title in the center -->
-            <span class="title">Settings</span>
-
-            <!-- Bell and Search icons on the right -->
-            <div class="header-icons">
-                <i>🔔</i>
-                <i>🔍</i>
-            </div>
-        </div>
-
-        <!-- Settings List -->
-        <ul class="settings-list">
-            <li><i>👤</i><a href="#">Manage my account</a></li>
-            <li><i>🔒</i><a href="#">Privacy and safety</a></li>
-            <li><i>🔗</i><a href="#">Share profile</a></li>
-            <li><i>🔔</i><a href="#">Push notifications</a></li>
-            <li><i>🌐</i><a href="#">Language</a></li>
-            <li><i>⚙️</i><a href="#">Accessibility</a></li>
-        </ul>
-
-        <!-- Log Out Button -->
-        <div class="logout">
-            Log Out
+<body class="bg-white h-screen flex flex-col">
+    <!-- Header -->
+    <div class="bg-[#61b739] p-4 flex justify-between items-center">
+        <i class="fas fa-bars text-white"></i>
+        <div class="flex space-x-4">
+            <i class="fas fa-search text-white"></i>
+            <i class="fas fa-bell text-white"></i>
         </div>
     </div>
-
-    <!-- Bottom Navigation Bar -->
-    <div class="footer">
-        <button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home"></button>
-        <a href="Upload Page.html"><button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus"></button></a>
-        <button><img src="C:\Users\User\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile"></button>
+    
+    <!-- Back Button -->
+    <div class="p-4 flex items-center space-x-2">
+        <i class="fas fa-arrow-left"></i>
+        <span class="text-lg">Settings</span>
     </div>
-
+    
+    <!-- Settings List -->
+    <div class="px-4 flex-grow overflow-y-auto">
+        <div class="mb-4">
+            <h2 class="text-gray-500 text-sm">ACCOUNT</h2>
+            <ul class="space-y-4 mt-2">
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-user"></i>
+                    <span>Manage my account</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-lock"></i>
+                    <span>Privacy and safety</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Share profile</span>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h2 class="text-gray-500 text-sm">GENERAL</h2>
+            <ul class="space-y-4 mt-2">
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-bell"></i>
+                    <span>Push notifications</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-language"></i>
+                    <span>Language</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                    <i class="fas fa-universal-access"></i>
+                    <span>Accessibility</span>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <a href="#" class="text-red-500">Log Out</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="bg-[#61b739] p-4 flex justify-around items-center">
+        <i class="fas fa-home text-2xl text-black"></i>
+        <i class="fas fa-plus text-2xl text-black"></i>
+        <i class="fas fa-user text-2xl text-black"></i>
+    </div>
 </body>
 </html>
