@@ -1,206 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenOasis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body, html {
+<html>
+ <head>
+  <title>
+   HomePage
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
         }
-
         .header {
             background-color: #61b739;
-            color: rgb(255, 255, 255);
             padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .header h1 {
-            margin: 0;
             font-size: 24px;
-            text-align: center;
-            flex-grow: 1;
         }
-
-        .nav-icon, .actions {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
+        .header i {
+            font-size: 25px;
+            color: #000;
+        
         }
-
-        .nav-icon img, .actions img {
-            width: 25px;
-            height: 25px;
-            margin: 0 10px;
+        .header .icons i {
+            margin-left: 20px;
         }
-
         .content {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            background-color: #fff;
+            color: #000;
         }
-
-        .post {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .banner {
+            position: relative;
+            text-align: center;
+            color: white;
         }
-
-        .post img {
+        .banner img {
             width: 100%;
-            border-radius: 10px;
+            height: auto;
         }
-
-        .user {
+        .banner .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: bold;
+            color: #fff;
+            -webkit-text-stroke: 5px #000;
+        }
+        .banner .subtext {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            -webkit-text-stroke: 1.5px #000;
+        }
+        .post {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            padding: 10px;
         }
-
-        .user img {
+        .post img {
+            border-radius: 50%;
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            margin-right: 15px;
+            margin-right: 10px;
         }
-
-        .user .info h3 {
-            margin: 0;
+        .post .info {
+            flex-grow: 1;
+        }
+        .post .info .name {
+            font-weight: bold;
+        }
+        .post .info .date {
+            color: #888;
+            font-size: 12px;
+        }
+        .post .location {
             font-size: 18px;
         }
-
-        .user .info p {
-            margin: 0;
-            font-size: 14px;
-            color: #777;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .actions .likes, .actions .comments {
-            display: flex;
-            align-items: center;
-        }
-
-        .actions img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        .actions p {
-            margin: 0;
-        }
-
-        .footer {
-            background-color: #61b739;
-            color: white;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            left: 0;
+        .post-image {
             width: 100%;
+            height: auto;
+        }
+        .footer {
             display: flex;
             justify-content: space-around;
+            align-items: center;
+            background-color: #61b739;
+            padding: 20px 0;
+            font-size: 24px;
         }
-
-        .footer button {
-            background-color: transparent;
-            color: white;
-            border: none;
-            cursor: pointer;
+        .footer i {
+            font-size: 30px;
+        }
+        .footer .fa-home {
+            color: #000;
+        }
+        .likes {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .likes .bold {
+            font-weight: bold;
+        }
+        .actions {
+            display: flex;
+            justify-content: flex-start;
+            padding: 10px;
+        }
+        .actions i {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .comments {
+            padding: 10px;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+        .comment {
+            margin-bottom: 10px;
+        }
+        .comment .name {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .add-comment {
             display: flex;
             align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ddd;
         }
-
-        .footer img {
-            width: 25px;
-            height: 25px;
+        .add-comment input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
         }
-
-        /* Responsive for mobile */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px;
-            }
-
-            .header h1 {
-                font-size: 20px;
-            }
-
-            .post {
-                padding: 15px;
-            }
-
-            .user img {
-                width: 30px;
-                height: 30px;
-            }
+        .add-comment button {
+            padding: 10px 20px;
+            background-color: #61b739;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
         }
-    </style>
-</head>
-<body>
-
-    <!-- Header Section -->
-    <div class="header">
-        <div class="nav-icon">
-            <a href="Navigation Menu.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\NM.png" alt="Menu"></button></a>
-        </div>
-        <h1>GreenOasis</h1>
-        <div class="actions">
-            <img src="search-icon.png" alt="Search">
-            <img src="bell-icon.png" alt="Notifications">
-        </div>
+  </style>
+ </head>
+ <body>
+  <div id="main">
+   <div class="header">
+    <a href="Navigation Menu.html">
+        <i class="fas fa-bars">
+        </i>
+    </a>
+    <div class="icons">
+     <i class="fas fa-search">
+     </i>
+     <i class="fas fa-bell">
+     </i>
     </div>
-
-    <!-- Content Section -->
-    <div class="content">
-        <div class="post">
-            <div class="user">
-                <img src="profile-picture.png" alt="Profile Picture">
-                <div class="info">
-                    <h3>joshua_I</h3>
-                    <p>22 August 2024</p>
-                </div>
-            </div>
-            <img src="C:\Users\Asus\Downloads\1.webp" alt="Plant Image">
-            <div class="actions">
-                <div class="likes">
-                    <img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\L.png" alt="Heart">
-                    <p>44,686</p>
-                </div>
-                <div class="comments">
-                    <img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\c.png" alt="Comment">
-                    <p>Craig, love and others</p>
-                </div>
-            </div>
-        </div>
+   </div>
+   <div class="content">
+    <div class="banner">
+     <img alt="A lush green wall of various plants" height="200" src="image/background.jpg">
+     <div class="text">
+      GreenOasis
+     </div>
+     <div class="subtext">
+      SINCE 2024
+     </div>
     </div>
-
-    <!-- Footer Section -->
-    <div class="footer">
-        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\h.png" alt="Home"></button>
-        <a href="Upload Page.html"><button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\a.png" alt="Plus"></button></a>
-        <button><img src="C:\Users\Asus\Learning\Plant\localplant-nep-assignment\image\p.png" alt="Profile"></button>
+    <div class="post">
+     <img alt="Profile picture of joshua_l" height="40" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-vZ90sps2XO9XefrdLPjZ4Owa.png?st=2024-09-25T14%3A27%3A41Z&amp;se=2024-09-25T16%3A27%3A41Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-25T01%3A20%3A58Z&amp;ske=2024-09-26T01%3A20%3A58Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=8affA/7EAzYBFuDZN%2B6Kif7662ytqneg98uim06FdVA%3D" width="40"/>
+     <div class="info">
+      <div class="name">
+       joshua_l
+      </div>
+      <div class="date">
+       22 August 2024
+      </div>
+     </div>
+     <i class="fas fa-map-marker-alt location">
+     </i>
     </div>
-
-</body>
+    <img alt="Close-up of large green leaves with water droplets" class="post-image" height="400" src="image/1.webp"/>
+    <div class="actions">
+     <i class="far fa-heart">
+     </i>
+     <i class="far fa-comment">
+     </i>
+    </div>
+    <div class="likes">
+     Liked by
+     <span class="bold">
+      craig_love
+     </span>
+     and
+     <span class="bold">
+      44,686
+     </span>
+     other
+    </div>
+    <div class="comments">
+     <div class="add-comment">
+      <input placeholder="Add a comment..." type="text"/>
+      <button>
+       Post
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="footer">
+    <a href="Home Page.html">
+        <i class="fas fa-home" style="color: #000;">
+    </i>
+    </a>
+    <a href="Upload Page.html">
+        <i class="fas fa-plus-square" style="color: #000;">
+    </i>
+    </a>
+    <a href="Page.html">
+        <i class="fas fa-user-circle" style="color: #000;">
+        </i>
+    </a>
+   </div>
+  </div>
+ </body>
 </html>
