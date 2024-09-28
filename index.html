@@ -1,41 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenOasis - Login</title>
-    <link rel="stylesheet" href="login.css">
+<title>
+Login page
+</title>
+<link rel="stylesheet" href="login.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <h1>GreenOasis</h1>
-                    <span class="since">Since 2024</span>
-                </div>
-            </nav>
-        </header>
-        
-        <div class="login-section">
-            <div class="login-card">
-                <form action="/login" method="POST">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn">Sign In</button>
-                </form>
-                <div class="links">
-                    <a href="forgot-password.html">Forgot password?</a>
-                    <a href="create-account.html">Create Account</a>
-                </div>
+<div id="main">
+
+<div class="content">
+<div class="banner">
+<img src="image/background.jpg">
+<div class="text">GreenOasis</div>
+<div class="subtext"> SINCE 2024</div>
+</div>
+<div class="login-section">
+    <div class="login-card">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
             </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+        
+        <div class="links">
+            <a href="forgot-password.html">Forgot password?</a>
+            <a href="create-account.html">Create Account</a>
         </div>
+    </form>
     </div>
+    </div>
+</div>
+</div>
 </body>
 </html>

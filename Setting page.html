@@ -1,70 +1,172 @@
-<html>
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body class="bg-white h-screen flex flex-col">
-    <!-- Header -->
-    <div class="bg-[#61b739] p-4 flex justify-between items-center">
-        <i class="fas fa-bars text-white"></i>
-        <div class="flex space-x-4">
-            <i class="fas fa-search text-white"></i>
-            <i class="fas fa-bell text-white"></i>
-        </div>
+<html></html>
+ <head>
+  <title>
+  Settings
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #fff;
+        }
+        .header {
+            background-color: #61b739;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+        }
+        .header i {
+            font-size: 25px;
+            color: #000;
+        
+        }
+        .header .icons i {
+            margin-left: 20px;
+        }
+
+        .content {
+            background-color: white;
+            padding: 20px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: #000;
+        }
+        .title i {
+            position: absolute;
+            left: 0;
+        }
+        .section-title {
+            font-size: 12px;
+            color: rgb(0, 0, 0);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .item i {
+            margin-right: 10px;
+            color: rgb(0, 0, 0);
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .item .text {
+            flex-grow: 1;
+        }
+        .logout {
+            color: red;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+       
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #61b739;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 24px;
+        }
+        .footer i {
+            font-size: 30px;
+        }
+        .footer .fa-home {
+            color: #000;
+        }
+       
+  </style>
+ </head>
+ <body>
+  <div id="main">
+   <div class="header">
+    <a href="Navigation Menu.html">
+        <i class="fas fa-bars">
+        </i>
+    </a>
+    <div class="icons">
+     <i class="fas fa-search">
+     </i>
+     <a href="Notification page.html">
+     <i class="fas fa-bell">
+     </i>
+     </a>
     </div>
-    
-    <!-- Back Button -->
-    <div class="p-4 flex items-center space-x-2">
-        <i class="fas fa-arrow-left"></i>
-        <span class="text-lg">Settings</span>
+   </div>
+
+   <div class="content">
+    <div class="title">
+        <i class="fas fa-arrow-left" style="color: #000;"></i>
+        Settings
     </div>
-    
-    <!-- Settings List -->
-    <div class="px-4 flex-grow overflow-y-auto">
-        <div class="mb-4">
-            <h2 class="text-gray-500 text-sm">ACCOUNT</h2>
-            <ul class="space-y-4 mt-2">
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-user"></i>
-                    <span>Manage my account</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-lock"></i>
-                    <span>Privacy and safety</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-share-alt"></i>
-                    <span>Share profile</span>
-                </li>
-            </ul>
-        </div>
-        <div class="mb-4">
-            <h2 class="text-gray-500 text-sm">GENERAL</h2>
-            <ul class="space-y-4 mt-2">
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-bell"></i>
-                    <span>Push notifications</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-language"></i>
-                    <span>Language</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <i class="fas fa-universal-access"></i>
-                    <span>Accessibility</span>
-                </li>
-            </ul>
-        </div>
-        <div class="mb-4">
-            <a href="#" class="text-red-500">Log Out</a>
-        </div>
+    <div class="section-title">ACCOUNT</div>
+    <div class="item">
+        <i class="fas fa-user"></i>
+        <span class="text"  style="color: #000;">Manage my account</span>
     </div>
-    
-    <!-- Footer -->
-    <div class="bg-[#61b739] p-4 flex justify-around items-center">
-        <i class="fas fa-home text-2xl text-black"></i>
-        <i class="fas fa-plus text-2xl text-black"></i>
-        <i class="fas fa-user text-2xl text-black"></i>
+    <div class="item">
+        <i class="fas fa-lock"></i>
+        <span class="text"  style="color: #000;">Privacy and safety</span>
     </div>
-</body>
+    <div class="item">
+        <i class="fas fa-share-alt"></i>
+        <span class="text"  style="color: #000;">Share profile</span>
+    </div>
+    <div class="section-title">GENERAL</div>
+    <div class="item">
+        <i class="fas fa-bell"></i>
+        <span class="text"  style="color: #000;">Push notifications</span>
+    </div>
+    <div class="item">
+        <i class="fas fa-language"></i>
+        <span class="text"  style="color: #000;">Language</span>
+    </div>
+    <div class="item">
+        <i class="fas fa-universal-access"></i>
+        <span class="text"  style="color: #000;">Accessibility</span>
+    </div>
+    <div class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <a href="#" class="logout">Log Out</a>
+    </div>
+</div>
+
+
+
+   <div class="footer">
+    <a href="Home Page.html">
+        <i class="fas fa-home" style="color: #000;">
+    </i>
+    </a>
+    <a href="Upload Page.html">
+        <i class="fas fa-plus-square" style="color: #000;">
+    </i>
+    </a>
+    <a href="Page.html">
+        <i class="fas fa-user-circle" style="color: #000;">
+        </i>
+    </a>
+   </div>
+  </div>
+ </body>
 </html>
