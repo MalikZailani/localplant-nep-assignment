@@ -28,6 +28,38 @@
             margin-left: 20px;
         }
 
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #61b739;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #ffffff;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
         .content {
             padding: 10px;
             flex-grow: 1;
@@ -90,9 +122,8 @@
  <body>
   <div id="main">
    <div class="header">
-    <a href="Navigation Menu.html">
-        <i class="fas fa-bars">
-        </i>
+    <i class="fas fa-bars" onclick="openNav()">
+    </i>
     </a>
     <div class="icons">
      <i class="fas fa-search">
@@ -103,6 +134,29 @@
      </a>
     </div>
    </div>
+
+   
+   <div id="mySidebar" class="sidebar">
+    <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">
+     &times;
+    </a>
+    <a href="Home Page.html">
+     Home
+    </a>
+    <a href="#">
+     Profile
+    </a> 
+    <a href="#">
+        Upload History
+       </a>
+       <a href="#">
+        Plant Community
+       </a>
+    <a href="Setting page.html">
+     Settings
+    </a>
+   </div>
+
 
    <div class="content">
     <div class="notification">
@@ -149,6 +203,15 @@
         </i>
     </a>
    </div>
+   <script>
+    function openNav() {
+             document.getElementById("mySidebar").style.width = "250px";
+         }
+ 
+         function closeNav() {
+             document.getElementById("mySidebar").style.width = "0";
+         }
+   </script>
   </div>
  </body>
 </html>

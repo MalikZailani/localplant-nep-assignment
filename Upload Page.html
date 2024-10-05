@@ -27,6 +27,36 @@
         .header .icons i {
             margin-left: 20px;
         }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #61b739;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #ffffff;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
 
         .upload-container {
             width: 300px;
@@ -176,9 +206,8 @@
 <body>
   <div id="main">
    <div class="header">
-    <a href="Navigation Menu.html">
-        <i class="fas fa-bars">
-        </i>
+    <i class="fas fa-bars" onclick="openNav()">
+    </i>
     </a>
     <div class="icons">
      <i class="fas fa-search">
@@ -190,14 +219,43 @@
     </div>
    </div>
 
+   <div id="mySidebar" class="sidebar">
+    <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">
+     &times;
+    </a>
+    <a href="Home Page.html">
+     Home
+    </a>
+    <a href="#">
+     Profile
+    </a> 
+    <a href="#">
+        Upload History
+       </a>
+       <a href="#">
+        Plant Community
+       </a>
+    <a href="Setting page.html">
+     Settings
+    </a>
+   </div>
+
    <div class="upload-container">
     <a href="#" class="close-btn">&times;</a>
     <h2>Upload Image</h2>
     <p>Write description or tell you stories</p>
 
 <div class="image-preview">
-    <img src="image-placeholder.png" alt="Image Preview">
-    <span>IMG-834912002832.jpg</span>
+    <form action="" method="post" enctype="multipart/form-data" id="">
+        <label for="image-upload">Upload Image</label>
+        <input type="file" name ="image-upload" id="fileInput" accept="image/*" />
+    </form>
+    <image-upload controls class="aspect image-upload w-full" id="imageUpload">
+
+    </image-upload>
+
+    
+   
 </div>
 
 <label for="title">Title</label>
@@ -230,6 +288,29 @@
         </i>
     </a>
    </div>
+   <script>
+    function openNav() {
+             document.getElementById("mySidebar").style.width = "250px";
+         }
+ 
+         function closeNav() {
+             document.getElementById("mySidebar").style.width = "0";
+         }
+   </script>
   </div>
  </body>
 </html>
+<script>
+    const imageUpload = document.getElementById('imageUpload') ;
+    const fileinput = document.getElementById('fileinput') ;
+    const imageForm = document.getElementById('imageForm') ;
+
+    fileinput.addEventListener('change', (event) => {
+        if(event?.target?.files && event.target.files[0]) {
+            console.log('loading file');
+            imageUpload.src = URL.createObjectURL(event.target.files[0]);
+            imageUpload.load();
+        }
+    });
+
+</script>
