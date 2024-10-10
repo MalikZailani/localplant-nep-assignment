@@ -4,7 +4,7 @@ Django is not yet used
 Check tutorial how to connect page
 SQLite should be used
 Make sure Django and SQLite is used
-MoM is for individual marks (Who do what task)
+MoM is for individual marks (Who do what specific task)
 
 
 
