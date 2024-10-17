@@ -70,7 +70,7 @@ def upload(request):
     return render(request,"Upload Page.html")
 
 def plantcommunity(request):
-    return render(request,"Plant Community.html")
+    return render(request,"Plant community page.html")
 
 def result(request):
     return render(request,"Result Page.html")
