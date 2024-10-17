@@ -1,4 +1,4 @@
-MoM 10 October 2024
+MoM 10 October 2024 10:30am - 10:40am
 
 Django is not yet used
 Check tutorial how to connect page
