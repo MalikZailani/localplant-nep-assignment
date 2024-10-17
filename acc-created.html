@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created - GreenOasis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0fff0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .menu-icon, .navbar .search-icon, .navbar .profile-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-image: url('leaves-background.jpg'); /* Use a background image of lush green leaves */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #000; /* Changed button color to black */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #333; /* Darker shade for hover */
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu-icon">&#9776;</div>
+            <div class="logo">GreenOasis</div>
+            <div class="icons">
+                <span class="search-icon">&#128269;</span>
+                <span class="profile-icon">&#128100;</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <h1>Your account has been created</h1>
+            <button class="btn">Sign In</button>
+            <button class="btn">Back to Homepage</button>
+            <div class="links">
+                <a href="#">Create another account</a> |
+                <a href="#">Help Center</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
