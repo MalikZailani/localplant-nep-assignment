@@ -1,0 +1,7 @@
+3rd MoM 17/10/2024 9:50am - 10:03am
+
+Manage.py is running
+Database is working but not completed fully
+Layout is too small
+Posts should have user, date, description, like for the post, location of the post, where to store the picture
+Need to do more work about the pictures
