@@ -38,14 +38,14 @@ def createaccount(request):
 
         # Check if the user already exists
         if User.objects.filter(email=email).exists():
-            return HttpResponse('User already exists. Please <a href="/login/">login</a>.')
+            return HttpResponse("User Already Exists. Please <a href='/login/'>login</a>.")
 
         # Create the new user
         user = User.objects.create_user(username=name, email=email, password=password)
         user.first_name = name  # Save full name in 'first_name'
         user.save()
 
-        return redirect('index')  # Redirect to login after successful registration
+        return redirect('acccreated')  # Redirect to login after successful registration
 
     return render(request, 'create-account.html')  # Render the registration form
 
@@ -74,6 +74,18 @@ def plantcommunity(request):
 
 def result(request):
     return render(request,"Result Page.html")
+
+def profile(request):
+    return render(request,"acc-profile.html")
+
+def acccreated(request):
+    return render(request,"acc-created.html")
+
+def custom_logout(request):
+    logout(request)  # Logs out the user
+    return redirect("index")  # Redirect to login or homepage
+
+
 
 # Define route for the user profile page
 

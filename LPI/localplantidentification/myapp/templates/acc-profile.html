@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - GreenOasis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0fff0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .navbar .icon {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start; /* Align items to the start */
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-right: 20px; /* Space between picture and stats */
+        }
+
+        .profile-picture img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #4CAF50;
+        }
+
+        .profile-stats {
+            display: flex; /* Display stats in a row */
+            flex-direction: row;
+            align-items: center; /* Center align items */
+            margin-right: 20px; /* Space between stats and details */
+        }
+
+        .profile-stats div {
+            text-align: center; /* Center text for each stat */
+            margin: 0 10px; /* Margin between each stat */
+        }
+
+        .profile-details {
+            flex: 1;
+            margin-top: 10px; /* Space above profile details */
+        }
+
+        .profile-details h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .profile-details p {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .edit-profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .edit-profile button {
+            padding: 10px 30px; /* Increased padding for length */
+            font-size: 14px;
+            color: black; /* Black text */
+            background-color: white; /* White background */
+            border: 2px solid black; /* Black thin border */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-profile button:hover {
+            background-color: #f0f0f0; /* Light gray on hover */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .icon {
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <span class="icon">&#9776;</span>
+            <span class="icon">&#128269;</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="profile-pic-placeholder.jpg" alt="Profile Picture">
+            </div>
+            <div class="profile-stats">
+                <div>
+                    <h3>54</h3>
+                    <p>Posts</p>
+                </div>
+                <div>
+                    <h3>834</h3>
+                    <p>Followers</p>
+                </div>
+                <div>
+                    <h3>162</h3>
+                    <p>Following</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-details">
+            <h2>@jacob_w</h2>
+            <p>Jacob West</p>
+            <p>Digital goodies designer @pixsellz</p>
+            <p>Everything is designed.</p>
+        </div>
+
+        <div class="edit-profile">
+            <button>Edit Profile</button>
+        </div>
+
+        <div class="gallery">
+            <img src="gallery-img1.jpg" alt="Gallery Image 1">
+            <img src="gallery-img2.jpg" alt="Gallery Image 2">
+            <img src="gallery-img3.jpg" alt="Gallery Image 3">
+            <img src="gallery-img4.jpg" alt="Gallery Image 4">
+            <img src="gallery-img5.jpg" alt="Gallery Image 5">
+            <img src="gallery-img6.jpg" alt="Gallery Image 6">
+        </div>
+    </main>
+
+    <footer>
+        <span class="icon">&#8962;</span>
+        <span class="icon">+</span>
+        <span class="icon">&#128100;</span>
+    </footer>
+</body>
+</html>

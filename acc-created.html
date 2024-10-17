@@ -5,39 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Created - GreenOasis</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        * * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
         }
 
         body {
-            background-color: #f0fff0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #fff;
         }
 
-        header {
-            background-color: #4CAF50;
+        .content {
+            background-color: #fff;
+            color: #000;
+        }
+        .banner {
+            position: relative;
+            text-align: center;
             color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .navbar .logo {
-            font-size: 24px;
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+        .banner .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
             font-weight: bold;
+            color: #fff;
+            -webkit-text-stroke: 5px #000;
         }
-
-        .navbar .icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .navbar .menu-icon, .navbar .search-icon, .navbar .profile-icon {
-            font-size: 24px;
-            cursor: pointer;
+        .banner .subtext {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            -webkit-text-stroke: 1.5px #000;
         }
 
         main {
@@ -94,14 +105,13 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="menu-icon">&#9776;</div>
-            <div class="logo">GreenOasis</div>
-            <div class="icons">
-                <span class="search-icon">&#128269;</span>
-                <span class="profile-icon">&#128100;</span>
+        <div id="main">
+            <div class="content">
+            <div class="banner">
+            <img src="image/background.jpg">
+            <div class="text">GreenOasis</div>
+            <div class="subtext"> SINCE 2024</div>
             </div>
-        </div>
     </header>
 
     <main>

@@ -55,7 +55,7 @@ ROOT_URLCONF = 'localplantidentification.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Brunei'
 
 USE_I18N = True
 
@@ -135,3 +135,4 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_URL = 'index'
 LOGIN_REDIRECT_URL = 'home'
 APPEND_SLASH = False
+LOGOUT_REDIRECT_URL = 'index'
