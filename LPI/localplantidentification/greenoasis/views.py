@@ -156,8 +156,11 @@ def deleteprofile(request):
 def settings(request):
      return render(request, 'Setting page.html')
 
+def passwordchange(request):
+     return render(request, 'passwordchange.html')
 
-
+def passwordchangedone(request):
+     return render(request, 'passwordchangedone.html')
 def custom_logout(request):
     logout(request)  # Logs out the user
     return redirect("index")  # Redirect to login or homepage
