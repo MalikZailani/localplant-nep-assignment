@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - GreenOasis</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <style>
+        :root {
+            --bg-color: white;
+            --text-color: #222;
+            --header-color: #61b739;
+            --sidebar-color: #61b739;
+        }
+
+        [data-theme="dark"] {
+            --bg-color:#222;
+            --text-color: white;
+            --header-color: #61b739;
+            --sidebar-color: #61b739;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--header-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header i {
+            font-size: 25px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .header .icons i {
+            margin-left: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #61b739;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #fff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Profile Section */
+        .profile {
+            background-color: #FFF8DC;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .profile h2 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #000;
+        }
+
+        .profile p {
+            margin: 5px 0;
+            color: #888;
+        }
+
+        .profile .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .profile .stats div {
+            text-align: center;
+            color: #000;
+        }
+
+        .profile .stats div span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .profile button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+       
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--header-color);
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer i {
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="main">
+        <div class="header">
+            <i class="fas fa-bars" onclick="openNav()"></i>
+            <form action="{% url 'search' %}" class="d-flex" role="search" method="GET">
+                <input name = "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark"  type="submit">Search</button>
+              </form>
+        </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'home' %}">Posts Plants</a>
+        <a href="{% url 'settings' %}">Settings</a>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile">
+        <img src="{% static 'image/profile.jpg' %}" alt="Profile picture of Jacob West">
+        <h2>@{{ user.username }}</h2>
+            <p>{{ user.first_name }} {{ user.last_name }}</p>
+            <p>{{ user.profile.bio }}</p>
+        
+       
+            <a class = "btn btn-dark" href="{% url 'editprofile' %}" >Edit Profile</a>
+        
+    </div>
+
+    <h1 class="text-center" style=" font-weight: bold; font-size: 36px; color: var(--text-color);"><br>Posts</h1>
+           
+        <div class="container mt-4">
+            {% for x in image %}
+            {% if forloop.first %}
+            <div class="row gp-4">
+                {% endif %}
+                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="card ml-10" style="width: 19rem;">
+                <img src="{{x.image.url}}" class="card-img-top" alt="{{x.image.url}}">
+                <div class="card-body">
+                <h5 class="card-title" style=" font-weight: bold;">{{x.title}}</h5>
+                <p class="card-text">{{x.tags}}</p>
+                <a href="{{x.get_absolute_url}}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+        </div> <div class="row gp-4"> {% endif %} {% if forloop.last %} </div> {% endif %}
+          {% endfor %}
+        </div> 
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+        <a href="{% url 'upload' %}"><i class="fas fa-plus-square"></i></a>
+        <a href="{% url 'profile' %}"><i class="fas fa-user-circle"></i></a>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>

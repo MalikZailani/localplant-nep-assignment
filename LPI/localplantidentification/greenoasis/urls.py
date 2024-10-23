@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
 from . import views
 
@@ -18,6 +19,11 @@ urlpatterns = [
     path('edit/', views.editpost, name='editpost'),
     path('<int:id>/edit/', views.editpost, name='editpost'),
     path('<int:id>/delete/', views.deletepost, name='deletepost'),
-  
+    path('profile', views.profile, name='profile'),
+    path('editprofile', views.editprofile, name='editprofile'),
+    path('setting/', views.settings, name='settings'),
+    path('deleteprofile/', views.deleteprofile, name='deleteprofile'),
+    path('passwordchange/', auth_views.PasswordChangeView.as_view(template_name='passwordchange.html'), name='passwordchange'),
+    path('passwordchangedone/', auth_views.PasswordChangeDoneView.as_view(template_name='passwordchangedone.html'), name='passwordchangedone'),
     path("logout/", views.custom_logout, name="logout"),
 ]

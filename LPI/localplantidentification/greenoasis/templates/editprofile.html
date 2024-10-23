@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - GreenOasis</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <style>
+        :root {
+            --bg-color: white;
+            --text-color: #222;
+            --header-color: #61b739;
+            --sidebar-color: #61b739;
+        }
+
+        [data-theme="dark"] {
+            --bg-color:#222;
+            --text-color: white;
+            --header-color: #61b739;
+            --sidebar-color: #61b739;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--header-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header i {
+            font-size: 25px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .header .icons i {
+            margin-left: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--sidebar-color);
+            transition: 0.5s;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color:#000 ;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #fff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Profile Container */
+        .container {
+            background-color: var(--bg-color);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-photo img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-photo h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #000;
+        }
+
+        .profile-photo a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .change-photo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info, .private-info {
+            margin-bottom: 20px;
+        }
+
+        .info label, .private-info label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .info input, .private-info input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .actions .cancel, .actions .save {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 48%;
+            text-align: center;
+        }
+
+        .actions .cancel {
+            background-color: #f44336;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="main">
+        <div class="header">
+            <i class="fas fa-bars" onclick="openNav()"></i>
+            <form action="{% url 'search' %}" class="d-flex" role="search" method="GET">
+                <input name = "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+              </form>
+        </div>
+
+   
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'home' %}">Posts Plants</a>
+        <a href="{% url 'settings' %}">Settings</a>
+    </div>
+
+    <div class="container">
+        <div class="profile-photo">
+            <h2 style="color: var(--text-color);">Edit Profile</h2>
+        </div>
+    
+        <form method="POST" action="{% url 'editprofile' %}">
+            {% csrf_token %}
+            <div class="info">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text"  value="{{ user.username }}"/>
+                
+                <label for="fname">First Name</label>
+                <input id="fname" name="first_name" type="text" value="{{ user.first_name }}"/>
+                
+                <label for="lname">Last Name</label>
+                <input id="lname" name="last_name" type="text" value="{{ user.last_name }}"/>
+            </div>
+
+            <div class="private-info">
+                <label>Email</label>
+                <input name="email" type="email" value="{{ user.email }}"/>
+                
+                <label>Phone</label>
+                <input name="phone" type="tel" value="{{ user.profile.phone }}"/>
+                
+                <label>Gender</label>
+                <input name="gender" type="text" value="{{ user.profile.gender }}"/>
+            </div>
+
+    
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </div>
+        </form>
+    
+        <form action="{% url 'deleteprofile' %}" method="POST" class="mt-3" onsubmit="return confirm('Are you sure you want to delete your profile?');">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+
+  
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>

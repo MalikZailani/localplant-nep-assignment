@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Image
 from django.db.models import Q
 from .forms import ImageForm
+from django.contrib.auth.decorators import login_required
+from .models import Profile
+
 
 
 # Create your views here.
@@ -103,14 +106,55 @@ def editpost(request,id):
             return redirect('home')
     else:
         form = ImageForm(instance=post)
-    return render(request, 'edit.html',{'form': form})
+    return render(request, 'edit.html',{'form': form, 'post': post})
 
 
 def deletepost(request,id):
     post=Image.objects.get(pk=id)
     post.delete()
     return redirect('home')
+def profile(request):
+     objects = Image.objects.all()
+     return render(request, 'profile.html',{'image':objects}) 
 
+def editprofile(request):
+    user = request.user
+    profile, _ = Profile.objects.get_or_create(user=user)
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        gender = request.POST.get('gender')
+
+        # Update user fields
+        user = request.user
+        user.username = username
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.save()
+
+        # Update profile fields
+        profile = user.profile
+        profile.phone = phone
+        profile.gender = gender
+        profile.save()
+
+        return redirect('profile')  # Redirect to the profile page after saving
+
+    return render(request, 'editprofile.html', {'user': user, 'profile': profile})
+    
+def deleteprofile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()  # Delete the user and associated profile
+        return redirect('index')
+
+def settings(request):
+     return render(request, 'Setting page.html')
 
 
 
