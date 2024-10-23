@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color:#FFF8DC;
+        }
+
+        /* Header */
+       .header {
+            background-color: #61b739;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .header i {
+            font-size: 25px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .header .icons i {
+            margin-left: 15px;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #61b739;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffffff;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Upload Container */
+        .upload-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-top: 20px solid #61b739;
+            position: relative;
+        }
+
+        .upload-container h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Close Button for Upload Container */
+        .upload-container .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .upload-container .close-btn:hover {
+            color: #000;
+        }
+
+        /* Input Styles */
+        input[type="file"], input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .upload-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-btn:hover {
+            background-color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #61b739;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer i {
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <i class="fas fa-bars" onclick="openNav()"></i>  <!-- Hamburger Menu -->
+        <form action="{% url 'search' %}" class="d-flex" role="search" method="GET">
+            <input name = "search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark"  type="submit">Search</button>
+          </form>
+           
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="">Profile</a>
+        <a href="{% url 'home' %}">Posts Plants</a>
+        <a href="">Settings</a>
+    </div>
+
+    <!-- Upload Container -->
+    <div class="upload-container ">
+        <a href="{% url 'upload' %}" class="close-btn">&times;</a>
+        <h2>Add posts</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        {% if valid %}
+        <div class="alert alert-success">{{ valid }}</div>
+    {% endif %}
+
+        <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="fileInput">Image</label> <!-- Added descriptive label -->
+            <input type="file" name="image" id="fileInput" accept="image/*" />
+        
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter title" required>
+        
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter description" required></textarea>
+        
+            <label for="description">Tags</label>
+            <textarea id="tags" name="tags" placeholder="Enter any tags" required></textarea>
+        
+            <button type="submit" class="upload-btn">Upload</button>
+            <a href="{% url 'home' %}" class="btn btn-dark mt-3 mx-auto d-block ">Posts Plants</a>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>  <!-- Home Icon -->
+        <a href="{% url 'upload' %}"><i class="fas fa-plus-square"></i></a>  <!-- Add Icon -->
+        <a href=""><i class="fas fa-user-circle"></i></a>  <!-- User Profile Icon -->
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // JavaScript to handle image preview
+        const fileInput = document.getElementById('fileInput');
+        const imageUpload = document.getElementById('imageUpload');
+
+        fileInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imageUpload.src = e.target.result;
+                    imageUpload.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
