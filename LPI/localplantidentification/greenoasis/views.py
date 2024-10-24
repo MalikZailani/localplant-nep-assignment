@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from .models import Image
 from django.db.models import Q
 from .forms import ImageForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
 
 
 
@@ -50,8 +52,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-def forgotpassword(request):
-    return render(request,'forgot-password.html')
+
 
 def acccreated(request):
     return render(request,"acc-created.html")
@@ -157,7 +158,16 @@ def settings(request):
      return render(request, 'Setting page.html')
 
 def passwordchange(request):
-     return render(request, 'passwordchange.html')
+    if request.method == 'POST':
+        form =PasswordChangeForm(user=request.user,data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request,"Your Password has changed successfully")
+            return redirect('home')
+    else:
+        form =PasswordChangeForm(user=request.user)
+    return render(request, 'passwordchange.html',{'form':form})
 
 def passwordchangedone(request):
      return render(request, 'passwordchangedone.html')

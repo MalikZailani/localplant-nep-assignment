@@ -135,3 +135,10 @@ AUTHENTICATION_BACKENDS = [
     'localplantidentification.auth_backend.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',  # Keep the default backend for admin access
 ]
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER ='gnul2311@gmail.com'
+EMAIL_HOST_PASSWORD ='rfsy mvki tbxg gwem'
