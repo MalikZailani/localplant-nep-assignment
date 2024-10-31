@@ -211,6 +211,8 @@
                 <img src="{{x.image.url}}" class="card-img-top" alt="{{x.image.url}}">
                 <div class="card-body">
                 <h5 class="card-title" style=" font-weight: bold;">{{x.title}}</h5>
+                <p><span id="like-count-{{ x.id }}">{{ x.like_count }}</span> likes</p>
+                <button class="btn btn-outline-primary like-button" data-id="{{ x.id }}">Like</button>
                 <a href="{{x.get_absolute_url}}" class="btn btn-primary">View Details</a>
             </div>
           </div>
@@ -230,6 +232,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded -->
 <script>
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -238,6 +241,25 @@
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
     }
+
+    $(document).ready(function() {
+        $('.like-button').click(function() {
+            let postId = $(this).data('id');
+            let likeCountElement = $(`#like-count-${postId}`);
+            
+            $.ajax({
+                url: `/like/${postId}/`,  // Use the constructed URL for the AJAX call
+                type: "GET",
+                success: function(response) {
+                    console.log("Like count received:", response.like_count); // Logs the new like count
+                    likeCountElement.text(response.like_count);  // Updates the displayed count
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error liking post:", error);
+                }
+            });
+        });
+    });
 </script>  
 </body>
 </html>

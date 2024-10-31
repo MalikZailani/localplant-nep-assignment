@@ -37,6 +37,8 @@ urlpatterns = [
     path('reset/done/', 
          auth_views.PasswordResetCompleteView.as_view(template_name='passwordresetcomplete.html'), 
          name='password_reset_complete'),
+
+     path('like/<int:id>/', views.like_post, name='like_post'),
     
     path("logout/", views.custom_logout, name="logout"),
 ]

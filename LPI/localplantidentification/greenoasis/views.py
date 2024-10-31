@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 
 
@@ -171,6 +173,13 @@ def passwordchange(request):
 
 def passwordchangedone(request):
      return render(request, 'passwordchangedone.html')
+
+def like_post(request, id):
+    post = get_object_or_404(Image, id=id)
+    post.like_count += 1
+    post.save()
+    return JsonResponse({'like_count': post.like_count})
+
 def custom_logout(request):
     logout(request)  # Logs out the user
     return redirect("index")  # Redirect to login or homepage

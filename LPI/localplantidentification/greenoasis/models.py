@@ -17,6 +17,7 @@ class Image(models.Model):
     description=models.TextField(blank=True)
     tags=models.TextField()
     image=models.ImageField(upload_to="pic/%y/")
+    like_count = models.IntegerField(default=0)
     
 
     def __str__(self):

@@ -199,7 +199,10 @@
                 <img src="{{x.image.url}}" class="card-img-top" alt="{{x.image.url}}">
                 <div class="card-body">
                 <h5 class="card-title" style=" font-weight: bold;">{{x.title}}</h5>
-                <p class="card-text">{{x.tags}}</p>
+                <p class="card-text">{{x.description}}</p>
+                <br>
+                <p><span id="like-count-{{ x.id }}">{{ x.like_count }}</span> likes</p>
+                <button class="btn btn-outline-success" data-id="{{ x.id }}">Like</button>
                 <a href="{{x.get_absolute_url}}" class="btn btn-primary">View Details</a>
             </div>
           </div>
@@ -209,6 +212,7 @@
           {% endfor %}
         </div> 
     </div>
+    <br><br>
 
 
     <!-- Footer -->
