@@ -10,6 +10,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from .forms import FeedbackForm
 
 
 
@@ -176,9 +177,29 @@ def passwordchangedone(request):
 
 def like_post(request, id):
     post = get_object_or_404(Image, id=id)
-    post.like_count += 1
+    user = request.user
+
+    if user in post.liked_by.all():
+        post.liked_by.remove(user)
+        post.like_count -= 1
+        liked = False
+    else:
+        post.liked_by.add(user)
+        post.like_count += 1
+        liked = True
+    
     post.save()
     return JsonResponse({'like_count': post.like_count})
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'feedback.html', {'form': FeedbackForm(), 'success': 'Thank you for your feedback!'})
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback.html', {'form': form})
 
 def custom_logout(request):
     logout(request)  # Logs out the user

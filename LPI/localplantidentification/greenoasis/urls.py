@@ -39,6 +39,8 @@ urlpatterns = [
          name='password_reset_complete'),
 
      path('like/<int:id>/', views.like_post, name='like_post'),
+
+     path('feedback/', views.feedback_view, name='feedback'),
     
     path("logout/", views.custom_logout, name="logout"),
 ]

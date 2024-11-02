@@ -146,23 +146,41 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'profile' %}">Profile</a>
-            
+            <a href="{% url 'feedback' %} ">Contact us</a>
             <a href="{% url 'home' %}">Posts Plants</a>
             <a href="{% url 'settings' %}">Settings</a>
         </div>
-            <h1 class="text-center" style=" font-weight: bold; font-size: 36px; color: var(--text-color);"><br>{{image.title}}</h1>
-        
-        <div class="container">
-            <img src="{{image.image.url}}" class="img-fluid mx-auto d-block" alt="{{post.title}}"><br>
-            <p class="text-center"><strong>Description:</strong> {{image.description}}</p>
-            <a href="{{image.image.url}}" class="btn btn-success mx-auto d-block w-50 mt-3 p-3" download>Download Image</a>
 
-              <!-- Edit Button -->
-            <a href="{% url 'editpost' id=image.id %}" class="btn btn-primary mx-auto d-block w-50 mt-3 p-3">Edit Post</a><br>
-            
-        </div> 
+        
+        
+        <h1 class="text-center" style="font-weight: bold; font-size: 36px; color: var(--text-color);"><br>{{ image.title }}</h1>
+
+        <div class="container ">
+            <table class="table border border-success text-center mt-3" >
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="position: relative;">
+                            <img src="{{ image.image.url }}" class="img-fluid mx-auto d-block mt-3" alt="{{ image.title }}">
+                            <a href="{{ image.image.url }}" class="btn btn-success mt-3 mb-3" download>Download Image</a>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #61b73988;" cl> <!-- Using a darker green background for better contrast in the description row -->
+                        <td><strong>Description:</strong></td>
+                       
+                    </tr>
+                    <td>{{ image.description }}</td>
+                    <tr>
+                        <td colspan="2">
+                            <a href="javascript:history.back()" class="btn btn-primary mt-3 mb-3">Back</a>
+                            <a href="{% url 'editpost' id=image.id %}" class="btn btn-primary mt-3 mb-3">Edit Post</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <br><br>
+        
+    <br><br><br>
     <div class="footer">
         <a href="{% url 'home' %}"><i class="fas fa-home"  style="color: #000;"></i></a>
         <a href="{% url 'upload' %}"><i class="fas fa-plus-square"  style="color: #000;"></i></a>

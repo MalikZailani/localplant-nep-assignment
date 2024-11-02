@@ -172,6 +172,7 @@
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'profile' %}">Profile</a>
         <a href="{% url 'home' %}">Posts Plants</a>
+        <a href="{% url 'feedback' %} ">Contact us</a>
         <a href="{% url 'settings' %}">Settings</a>
     </div>
 
@@ -202,7 +203,13 @@
                 <p class="card-text">{{x.description}}</p>
                 <br>
                 <p><span id="like-count-{{ x.id }}">{{ x.like_count }}</span> likes</p>
-                <button class="btn btn-outline-success" data-id="{{ x.id }}">Like</button>
+                <button class="btn btn-outline-primary like-button" data-id="{{ x.id }}">
+                    {% if user in x.liked_by.all %}
+                        Unlike
+                    {% else %}
+                        Like
+                    {% endif %}
+                </button>
                 <a href="{{x.get_absolute_url}}" class="btn btn-primary">View Details</a>
             </div>
           </div>
@@ -221,7 +228,7 @@
         <a href="{% url 'upload' %}"><i class="fas fa-plus-square"></i></a>
         <a href="{% url 'profile' %}"><i class="fas fa-user-circle"></i></a>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded -->
     <script>
         function openNav() {
             document.getElementById("mySidebar").style.width = "250px";
@@ -230,6 +237,29 @@
         function closeNav() {
             document.getElementById("mySidebar").style.width = "0";
         }
+        $(document).ready(function() {
+        $('.like-button').click(function() {
+            let postId = $(this).data('id');
+            let likeCountElement = $(`#like-count-${postId}`);
+            let likeButton = $(this);
+
+            $.ajax({
+                url: "{% url 'like_post' id=0 %}".replace('0', postId),
+                type: "GET",
+                success: function(response) {
+                    likeCountElement.text(response.like_count);
+                    if (response.liked) {
+                        likeButton.text('Unlike');
+                    } else {
+                        likeButton.text('Like');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error liking post:", error);
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
